@@ -53,6 +53,16 @@ http://127.0.0.1:8000/docs
 
 This opens the interactive Swagger UI where you can test every endpoint.
 
+### Live Demo
+
+You can also try the running service on the public demo instance:
+
+```
+https://recepiebook.onrender.com/docs#/
+```
+
+Note: this project is hosted on a free tier. The service may take a couple of minutes to start (cold start) when it's not been used recently — please allow time for the demo to load on first access.
+
 ### Running the Tests (without Docker)
 
 Inside your virtual environment:
