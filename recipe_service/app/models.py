@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import List
+from typing import Dict, List
 
 from pydantic import BaseModel, Field, model_validator
 
@@ -9,7 +9,8 @@ class RecipeBase(BaseModel):
     """Shared fields for recipes."""
     title: str
     description: str
-    ingredients: List[str]
+    # Ingredients mapping: ingredient name -> amount (float)
+    ingredients: Dict[str, float]
     steps: List[str]
     prep_minutes: int = Field(ge=1, le=600, description="1–600 minutes")
 
@@ -24,6 +25,6 @@ class RecipeCreate(RecipeBase):
 
     @model_validator(mode="after")
     def normalize_title(self) -> "RecipeCreate":
-        # Example of custom validation/normalization
+        # Normalize title to Title Case and strip whitespace
         self.title = self.title.strip().title()
         return self

@@ -12,7 +12,7 @@ def test_create_recipe_returns_201_and_payload(client):
         json={
             "title": "pancakes",
             "description": "Fluffy pancakes",
-            "ingredients": ["Flour", "Eggs"],
+            "ingredients": {"Flour": 2.0, "Eggs": 2.0},
             "steps": ["Mix", "Cook"],
             "prep_minutes": 15,
         },
@@ -30,7 +30,7 @@ def test_list_recipes_returns_created_recipe(client):
         json={
             "title": "salad",
             "description": "Green salad",
-            "ingredients": ["Lettuce"],
+            "ingredients": {"Lettuce": 1.0},
             "steps": ["Chop", "Serve"],
             "prep_minutes": 5,
         },
@@ -49,7 +49,7 @@ def test_get_recipe_by_id(client):
         json={
             "title": "soup",
             "description": "Tomato soup",
-            "ingredients": ["Tomatoes"],
+            "ingredients": {"Tomatoes": 500.0},
             "steps": ["Boil"],
             "prep_minutes": 30,
         },
@@ -74,7 +74,7 @@ def test_delete_recipe(client):
         json={
             "title": "cake",
             "description": "Chocolate cake",
-            "ingredients": ["Flour", "Cocoa"],
+            "ingredients": {"Flour": 3.0, "Cocoa": 1.0},
             "steps": ["Mix", "Bake"],
             "prep_minutes": 45,
         },
@@ -94,7 +94,7 @@ def test_prep_minutes_too_small_is_rejected(client):
         json={
             "title": "instant",
             "description": "Too fast",
-            "ingredients": ["Magic"],
+            "ingredients": {"Magic": 0.1},
             "steps": ["Snap"],
             "prep_minutes": 0,
         },
