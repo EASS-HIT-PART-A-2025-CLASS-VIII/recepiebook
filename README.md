@@ -137,7 +137,8 @@ The frontend must be run separately from the API.
 Start the backend first, then run the frontend:
 
 ```bash
-uv run streamlit run frontend/app.py
+uv run streamlit run recipe_service/frontend/app.py
+
 The frontend will be available at:
 
 http://localhost:8501
