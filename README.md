@@ -13,15 +13,19 @@ recipe_service/
 │   ├── repository.py        # In-memory recipe repository
 │   ├── dependencies.py      # Dependency injection for repository + settings
 │   └── config.py            # App configuration using pydantic-settings
-└── tests/
-    ├── test_recipes.py      # CRUD tests for the API
-    └── conftest.py          # TestClient setup
+│
+├── tests/
+│   ├── conftest.py          # TestClient setup
+│   └── test_recipes.py      # CRUD tests for the API
+│
+├── frontend/
+│   └── app.py               # Streamlit frontend application
+│
+├── Dockerfile               # Docker build file
+├── docker-compose.yml       # Docker Compose service definition
+├── pyproject.toml           # Project dependencies and metadata
+└── README.md                # Documentation (this file)
 
-Dockerfile                   # Docker build file
-docker-compose.yml           # Docker Compose service definition
-pyproject.toml               # Project dependencies and metadata
-README.md                    # Documentation (this file)
-```
 
 ## API Endpoints
 
@@ -122,6 +126,21 @@ You can override settings using environment variables with the `RECIPE_` prefix.
 export RECIPE_APP_NAME="My Recipe App"
 docker compose up
 ```
+## Frontend (Streamlit UI)
+
+A simple Streamlit-based frontend is provided for interacting with the Recipe API.
+
+### Running the Frontend
+
+The frontend must be run separately from the API.
+
+Start the backend first, then run the frontend:
+
+```bash
+uv run streamlit run frontend/app.py
+The frontend will be available at:
+
+http://localhost:8501
 
 ## Features
 
